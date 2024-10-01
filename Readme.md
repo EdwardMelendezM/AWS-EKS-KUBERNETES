@@ -12,6 +12,19 @@
   aws configure
 ```
 
+- Update Aws Eks kubeconfig
+```
+  aws eks update-kubeconfig \
+  --region us-east-2 \
+  --name staging-demo
+```
+
+- Verify kubectl
+```
+  kubectl auth can-i "*" "*"
+  (yes)
+```
+
 ## Terraform helps
 - Init
 ```
