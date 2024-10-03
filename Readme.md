@@ -7,22 +7,29 @@
 - Autoscaling
 
 ## Aws helps
-- Setup config aws
-```
-  aws configure
-```
-
-- Update Aws Eks kubeconfig
+- Access Aws Eks 
 ```
   aws eks update-kubeconfig \
   --region us-east-2 \
   --name staging-demo
 ```
 
-- Verify kubectl
+- Access Aws Eks like developer
 ```
-  kubectl auth can-i "*" "*"
-  (yes)
+  aws eks update-kubeconfig \
+  --region us-east-2 \
+  --name staging-demo \
+  --profile developer
+```
+
+- Setup config aws
+```
+  aws configure
+```
+
+- Configure profile of role in kubernetes
+```
+  aws configure --profile developer
 ```
 
 ## Terraform helps
@@ -34,4 +41,26 @@
 - Apply
 ```
   terraform apply
+```
+
+## Kubernetes helps
+- Verify admin privileges
+```
+  kubectl auth can-i "*" "*"
+  (yes)
+```
+
+- Verify the local kubernetes config uses the developer
+```
+  kubectl config view --minify
+```
+
+- Verify auth can get pods
+```
+  kubectl auth can-i get pods
+```
+
+- Get nodes
+```
+  kubectl get nodes
 ```
