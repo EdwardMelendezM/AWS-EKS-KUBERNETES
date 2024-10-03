@@ -64,3 +64,13 @@
 ```
   kubectl get nodes
 ```
+
+- Apply
+```
+  kubectl apply 3-example
+```
+
+- Watch
+```
+  ~ watch -t kubectl get pods -n 3-example
+```
