@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: my-app
+  namespace: 5-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: aputra/my-app-195:v2
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 100m
+            limits:
+              memory: 128Mi
+              cpu: 100m
